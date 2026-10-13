@@ -49,21 +49,30 @@ export const HERO = {
 }
 
 export const ABOUT = {
-  eyebrow: 'Sobre nosotros',
-  title: 'Más que café, un lugar para',
-  accent: 'conectar.',
+  tag: { icon: 'feather', text: 'Nuestra historia & manifiesto' },
+  title: 'Más que café, un lugar',
+  accent: 'para conectar.',
+  quote: {
+    label: 'Filosofía',
+    text: 'El café sabe mejor cuando el tiempo se detiene un momento.',
+  },
   paragraphs: [
-    'En Black Coffee creemos que una buena taza abre conversaciones. Tostamos con cuidado, preparamos con cariño y abrimos las puertas para que cada visita se sienta como en casa.',
-    'Ven por el café, quédate por la gente: libros, juegos de mesa y un rincón para ti.',
+    'Nacimos con una idea clara: el café no debe ser una rutina con prisa en un vaso descartable, sino una invitación a respirar. En Black Coffee unimos la maestría del tueste con la calidez de un espacio donde las personas vienen a leer, reír en una partida de cartas o compartir una conversación sincera.',
+    'Cuidamos cada detalle térmico: bebidas frías llenas de energía vibrante y preparaciones calientes que reconfortan el espíritu. Aquí no eres solo un cliente; eres parte de nuestra pequeña gran comunidad.',
   ],
   features: [
-    { icon: 'sparkle', title: 'Todo fresco', text: 'Granos tostados y bebidas preparadas al momento.' },
-    { icon: 'users', title: 'Comunidad real', text: 'Lectores, jugadores y amigos que vuelven siempre.' },
+    { icon: 'flame', title: 'Tueste Fresco', text: 'Lotes seleccionados con perfil balanceado.' },
+    { icon: 'users', title: 'Comunidad Real', text: 'Un salón abierto al intercambio y juego libre.' },
   ],
+  link: { label: 'Conoce nuestra esencia', href: '#galeria' },
 }
 
-export const NEWSLETTER = {
+export const PROMO = {
+  tag: { icon: 'feather', text: 'Novedad de temporada' },
   title: 'Algo delicioso',
   accent: 'está por llegar.',
-  text: 'Suscríbete y sé el primero en conocer nuestras nuevas bebidas, eventos y promociones.',
+  text: "Nuestras creaciones frías con crema batida especial, hielo artesanal y maridajes frescos de tostadas con fresa. Pregunta en mostrador por el combo 'Dulce Pausa'.",
+  cta: { label: 'Descubre las novedades', href: '#carta' },
+  note: { icon: 'ticket', text: 'Disponible solo por este mes' },
 }
+

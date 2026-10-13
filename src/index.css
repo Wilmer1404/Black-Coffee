@@ -22,6 +22,10 @@
   .eyebrow {
     @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-caramel;
   }
+  /* Etiqueta tipo "pill" con icono, usada sobre los títulos de sección */
+  .pill-tag {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-[#FBE3CF] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#B4561B];
+  }
   .btn-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-cream transition duration-300 hover:-translate-y-0.5 hover:bg-[#523019] hover:shadow-soft;
   }
@@ -30,5 +34,33 @@
   }
   .card {
     @apply overflow-hidden rounded-3xl bg-white/70 shadow-soft ring-1 ring-primary/5 transition duration-300 hover:-translate-y-1;
+  }
+  /* Tarjeta clara con esquinas asimétricas (menú / planes) */
+  .card-soft {
+    @apply relative flex flex-col overflow-hidden rounded-[2rem_2rem_2.75rem_2rem] bg-[#FFFCF3] shadow-soft ring-1 ring-primary/5 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_40px_-16px_rgba(59,34,17,0.35)];
+  }
+}
+
+/*
+ * Difuminados: la imagen se desvanece hacia el fondo usando máscaras.
+ * `to-*` indica el lado hacia el que la imagen desaparece.
+ * Siempre incluyen el prefijo -webkit- por compatibilidad.
+ */
+@layer utilities {
+  .fade-to-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 38%, rgba(0, 0, 0, 0.55) 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 38%, rgba(0, 0, 0, 0.55) 70%, transparent 100%);
+  }
+  .fade-to-b-soft {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+  .fade-to-r {
+    -webkit-mask-image: linear-gradient(to right, #000 25%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 25%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+  }
+  .fade-to-l {
+    -webkit-mask-image: linear-gradient(to left, #000 30%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
+    mask-image: linear-gradient(to left, #000 30%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
   }
 }

@@ -8,17 +8,18 @@ export default {
     extend: {
       colors: {
         primary: "#3B2211",
-        cream: "#FAF6E9",
+        cream: "#FDF7E7",
         "coffee-dark": "#3B2211",
-        "coffee-cream": "#FAF6E9",
-        sand: "#F4E8C3",
-        caramel: "#C8742B",
+        "coffee-cream": "#FDF7E7",
+        sand: "#FBEFC4",
+        caramel: "#B8651B",
         leaf: "#4F7A3A",
         mint: "#E3EBD0",
+        orange: "#FF9333",
       },
       fontFamily: {
         serif: ['"Playfair Display"', "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Manrope", "system-ui", "sans-serif"],
       },
       boxShadow: {
         soft: "0 10px 30px -12px rgba(59, 34, 17, 0.25)",

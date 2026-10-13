@@ -7,25 +7,48 @@ import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
 
 function MenuCard({ item, index }) {
+  const badgeTone =
+    item.tone === 'green' ? 'bg-[#A6E07E] text-[#1F4A0E]' : 'bg-white/90 text-primary'
+
   return (
-    <Reveal as="article" delay={index * 80} className="card group h-full">
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <Reveal as="article" delay={index * 80} className="card-soft group h-full p-2">
+      {/* Imagen con difuminado inferior hacia el color de la tarjeta */}
+      <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.6rem_1.6rem_2.4rem_1.6rem]">
         <img
           src={item.image}
           alt={item.name}
           loading="lazy"
-          className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${item.position}`}
+          className={`fade-to-b h-full w-full object-cover transition duration-700 group-hover:scale-105 ${item.position}`}
         />
-        <span className="absolute right-3 top-3 rounded-full bg-leaf px-3 py-1 text-xs font-bold text-white shadow-soft">
-          {formatPrice(item.price)}
+        <span
+          className={`absolute left-3 top-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide shadow-soft backdrop-blur ${badgeTone}`}
+        >
+          {item.badge}
         </span>
       </div>
-      <div className="p-4">
-        <span className="rounded-full bg-mint px-2.5 py-1 text-[10px] font-semibold text-leaf">
-          {item.category}
-        </span>
-        <h3 className="mt-3 text-lg font-semibold leading-snug">{item.name}</h3>
-        <p className="mt-1 text-xs leading-relaxed text-primary/65">{item.desc}</p>
+
+      <div className="flex flex-1 flex-col px-3 pb-3 pt-1">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-[1.05rem] font-semibold leading-tight">{item.name}</h3>
+          <span className="shrink-0 rounded-full bg-[#FBE3CF] px-2.5 py-1 text-[11px] font-bold leading-tight text-[#B4561B]">
+            {formatPrice(item.price)}
+          </span>
+        </div>
+        <p className="mt-2 flex-1 text-[11.5px] leading-relaxed text-primary/65">{item.desc}</p>
+
+        <div className="mt-4 flex items-center justify-between border-t border-primary/10 pt-3">
+          <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-primary/80">
+            <Icon name={item.feature.icon} className="h-3.5 w-3.5" />
+            {item.feature.text}
+          </span>
+          <button
+            type="button"
+            aria-label={`Agregar ${item.name}`}
+            className="grid h-8 w-8 place-items-center rounded-full bg-[#F8E7A8] text-primary transition hover:bg-primary hover:text-cream"
+          >
+            <Icon name="plus" className="h-4 w-4" strokeWidth={2.2} />
+          </button>
+        </div>
       </div>
     </Reveal>
   )
@@ -43,15 +66,20 @@ export default function CoffeeMenu() {
   const canToggle = filtered.length > MENU_PREVIEW_COUNT
 
   return (
-    <section id="carta" className="bg-sand/60 py-16 lg:py-20">
+    <section id="carta" className="bg-sand py-16 lg:py-20">
       <div className="section-wrap">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="Nuestra carta"
+            tag={{ icon: 'star', text: 'Selección barista' }}
             title="Hay un café para cada"
             accent="momento."
+            description="Descubre sabores que hacen especial cada visita, preparados al punto exacto de balance aromático."
           />
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar carta">
+          <div
+            className="flex flex-wrap gap-1.5 rounded-[1.75rem] border border-[#EBD9A0] bg-cream/80 p-2 md:max-w-sm"
+            role="tablist"
+            aria-label="Filtrar carta"
+          >
             {MENU_FILTERS.map((f) => (
               <button
                 key={f}
@@ -59,10 +87,8 @@ export default function CoffeeMenu() {
                 role="tab"
                 aria-selected={filter === f}
                 onClick={() => setFilter(f)}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-                  filter === f
-                    ? 'bg-primary text-cream shadow-soft'
-                    : 'bg-white/70 text-primary/70 ring-1 ring-primary/10 hover:bg-white'
+                className={`rounded-full px-4 py-2 text-[11px] font-bold transition ${
+                  filter === f ? 'bg-primary text-cream shadow-soft' : 'text-primary/75 hover:bg-primary/5'
                 }`}
               >
                 {f}

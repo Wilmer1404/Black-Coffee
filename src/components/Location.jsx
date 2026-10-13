@@ -6,7 +6,7 @@ import SectionHeading from './ui/SectionHeading'
 
 export default function Location() {
   return (
-    <section id="ubicacion" className="bg-sand/60 py-16 lg:py-20">
+    <section id="ubicacion" className="bg-sand py-16 lg:py-20">
       <div className="section-wrap">
         <SectionHeading
           align="center"

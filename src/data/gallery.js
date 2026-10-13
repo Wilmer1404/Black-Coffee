@@ -1,38 +1,62 @@
 import { IMAGES } from './site'
 
-export const GALLERY_PERKS = [
-  { icon: 'dice', title: 'Cartas y juegos disponibles', text: 'Ajedrez, cartas y juegos de mesa para todos.' },
-  { icon: 'book', title: 'Biblioteca comunitaria', text: 'Lleva, lee y comparte libros con la comunidad.' },
-]
+export const GALLERY_HEADING = {
+  tag: { icon: 'dice', text: 'Nuestra esencia única' },
+  title: 'Café, libros y buenas',
+  accent: 'partidas.',
+  description:
+    'No creemos en cafeterías rígidas donde reina el silencio incómodo ni en lugares ruidosos sin encanto. Creamos una atmósfera viva donde un juego amistoso o un libro cautivador van de la mano con la mejor taza de café.',
+}
 
-/** Cada `shape` es un border-radius orgánico distinto (efecto "blob"). */
-export const GALLERY_IMAGES = [
+export const GALLERY_PERKS = [
   {
-    src: IMAGES.reader,
-    alt: 'Cliente leyendo con un café',
-    shape: 'rounded-[58%_42%_47%_53%/52%_44%_56%_48%]',
-    position: 'object-[center_30%]',
+    icon: 'dice',
+    title: 'Ludoteca Siempre Disponible',
+    text: 'Pide el juego de mesa que quieras en mostrador sin costo adicional.',
   },
   {
-    src: IMAGES.barista,
-    alt: 'Barista oliendo granos de café',
-    shape: 'rounded-[44%_56%_52%_48%/55%_47%_53%_45%]',
-    position: 'object-[center_45%]',
-    offset: 'mt-10',
+    icon: 'book',
+    title: 'Biblioteca Comunitaria',
+    text: 'Novelas clásicas, diseño, relatos y poesía para hojear a tu ritmo.',
+  },
+]
+
+/**
+ * Collage en forma de arcos. Cada foto lleva su etiqueta flotante.
+ * Reemplaza `src` por las fotos reales de juegos cuando estén en /public/images.
+ */
+export const GALLERY_IMAGES = [
+  {
+    src: IMAGES.toast,
+    label: 'Desayunos',
+    alt: 'Tostadas francesas con fruta junto a un batido',
+    shape: 'rounded-[999px_999px_1.75rem_1.75rem]',
+    position: 'object-[45%_75%]',
+    layout: 'aspect-[3/4.1]',
+  },
+  {
+    src: IMAGES.reader,
+    label: 'Lectura Tranquila',
+    alt: 'Cliente leyendo un libro con una taza de café',
+    shape: 'rounded-[1.75rem_999px_1.75rem_1.75rem]',
+    position: 'object-[center_30%]',
+    layout: 'aspect-[4/3]',
   },
   {
     src: IMAGES.espresso,
-    alt: 'Espresso junto a granos de café',
-    shape: 'rounded-[50%_50%_44%_56%/46%_58%_42%_54%]',
-    position: 'object-[center_25%]',
-    offset: '-mt-6',
+    label: 'Espresso',
+    alt: 'Espresso junto a granos formando el nombre del café',
+    shape: 'rounded-[1.75rem_1.75rem_1.75rem_1.75rem]',
+    position: 'object-[center_30%]',
+    layout: 'aspect-[4/3]',
   },
   {
-    src: IMAGES.toast,
-    alt: 'Tostadas francesas y batido',
-    shape: 'rounded-[47%_53%_58%_42%/53%_45%_55%_47%]',
-    position: 'object-[40%_70%]',
-    offset: 'mt-4',
+    src: IMAGES.barista,
+    label: 'Aromas',
+    alt: 'Barista oliendo granos de café',
+    shape: 'rounded-[1.75rem_1.75rem_999px_999px]',
+    position: 'object-[center_40%]',
+    layout: 'aspect-[3/4.1]',
   },
 ]
 
