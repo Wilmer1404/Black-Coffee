@@ -13,7 +13,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pt-16 sm:pt-[68px]">
         <Hero />
         <CoffeeMenu />
         <About />

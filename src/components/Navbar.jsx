@@ -38,10 +38,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition duration-300 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition duration-300 ${
+        scrolled || open
           ? 'border-b border-primary/10 bg-cream/95 shadow-soft backdrop-blur-md'
-          : 'bg-cream/70 backdrop-blur-sm'
+          : 'border-b border-primary/5 bg-cream/85 backdrop-blur-md'
       }`}
     >
       <nav
@@ -109,7 +109,7 @@ export default function Navbar() {
         id="mobile-menu"
         className={`grid overflow-hidden transition-all duration-300 lg:hidden ${
           open
-            ? 'grid-rows-[1fr] border-t border-primary/10 bg-cream/98 shadow-lg backdrop-blur-md'
+            ? 'grid-rows-[1fr] border-t border-primary/10 bg-cream/98 shadow-lg backdrop-blur-md max-h-[calc(100vh-4.5rem)] overflow-y-auto'
             : 'grid-rows-[0fr]'
         }`}
       >
