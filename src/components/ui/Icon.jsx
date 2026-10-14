@@ -67,6 +67,13 @@ const paths = {
   ),
   facebook: <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8Z" />,
   tiktok: <path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3a5 5 0 0 0 5 5" />,
+  chat: (
+    <>
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path d="M8 9h8M8 13h5" />
+    </>
+  ),
+  whatsapp: <path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />,
   mail: (
     <>
       <rect x="2" y="4" width="20" height="16" rx="3" />

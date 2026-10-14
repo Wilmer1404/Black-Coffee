@@ -50,6 +50,7 @@ export const HERO = {
 
 export const ABOUT = {
   tag: { icon: 'feather', text: 'Nuestra historia & manifiesto' },
+  heroSubtitle: 'Nacido para devolverle la calma a tu rutina.',
   title: 'Más que café, un lugar',
   accent: 'para conectar.',
   quote: {
@@ -57,12 +58,21 @@ export const ABOUT = {
     text: 'El café sabe mejor cuando el tiempo se detiene un momento.',
   },
   paragraphs: [
-    'Nacimos con una idea clara: el café no debe ser una rutina con prisa en un vaso descartable, sino una invitación a respirar. En Black Coffee unimos la maestría del tueste con la calidez de un espacio donde las personas vienen a leer, reír en una partida de cartas o compartir una conversación sincera.',
-    'Cuidamos cada detalle térmico: bebidas frías llenas de energía vibrante y preparaciones calientes que reconfortan el espíritu. Aquí no eres solo un cliente; eres parte de nuestra pequeña gran comunidad.',
+    'Creemos que los mejores momentos suceden cuando no hay prisa. En Black Coffee unimos el rigor del grano tostado a mano con estanterías llenas de lecturas compartidas y partidas interminables entre amigos.',
   ],
   features: [
-    { icon: 'flame', title: 'Tueste Fresco', text: 'Lotes seleccionados con perfil balanceado.' },
-    { icon: 'users', title: 'Comunidad Real', text: 'Un salón abierto al intercambio y juego libre.' },
+    {
+      icon: 'flame',
+      title: 'Tueste Fresco',
+      text: 'Lotes pequeños tostados cada 48 horas en tienda.',
+      iconBg: 'bg-[#3B2211] text-cream',
+    },
+    {
+      icon: 'users',
+      title: 'Comunidad Real',
+      text: 'Mesas amplias, enchufes libres y conversación viva.',
+      iconBg: 'bg-[#FF9333] text-white',
+    },
   ],
   link: { label: 'Conoce nuestra esencia', href: '#galeria' },
 }

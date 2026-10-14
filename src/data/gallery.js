@@ -1,23 +1,24 @@
 import { IMAGES } from './site'
 
 export const GALLERY_HEADING = {
-  tag: { icon: 'dice', text: 'Nuestra esencia única' },
+  eyebrow: 'LUDOTECA & BIBLIOTECA',
   title: 'Café, libros y buenas',
-  accent: 'partidas.',
-  description:
-    'No creemos en cafeterías rígidas donde reina el silencio incómodo ni en lugares ruidosos sin encanto. Creamos una atmósfera viva donde un juego amistoso o un libro cautivador van de la mano con la mejor taza de café.',
+  accent: 'partidas',
+  description: 'Sin cuotas extra por jugar: sólo siéntate, pide tu bebida y déjate llevar.',
 }
 
-export const GALLERY_PERKS = [
+export const GALLERY_CARDS = [
   {
     icon: 'dice',
-    title: 'Ludoteca Siempre Disponible',
-    text: 'Pide el juego de mesa que quieras en mostrador sin costo adicional.',
+    iconBg: 'bg-[#3B2211] text-cream',
+    title: 'Espacio de Juegos',
+    text: 'Más de 20 títulos listos en estantería: desde estrategia rápida hasta partidas casuales de 15 minutos.',
   },
   {
     icon: 'book',
-    title: 'Biblioteca Comunitaria',
-    text: 'Novelas clásicas, diseño, relatos y poesía para hojear a tu ritmo.',
+    iconBg: 'bg-caramel text-cream',
+    title: 'Biblioteca Abierta',
+    text: 'Novelas, ensayos sobre diseño y botánica disponibles para hojear libremente mientras tomas tu infusión.',
   },
 ]
 

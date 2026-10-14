@@ -1,68 +1,75 @@
-import { FOOTER_COLUMNS } from '../data/location'
-import { IMAGES, SITE } from '../data/site'
+import { FOOTER_DATA } from '../data/location'
+import { SITE } from '../data/site'
 import Icon from './ui/Icon'
-
-const CURRENT_YEAR = new Date().getFullYear()
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-cream">
-      <div className="section-wrap grid gap-8 sm:gap-10 py-10 sm:py-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-        <div className="sm:col-span-2 lg:col-span-1">
-          <a href="#inicio" className="inline-flex items-center gap-3 transition-transform hover:scale-[1.02]">
-            <img src={IMAGES.logo} alt="" className="h-10 w-10 sm:h-11 sm:w-11 rounded-full ring-1 ring-white/10" />
-            <span className="font-serif text-lg sm:text-xl font-semibold">{SITE.name}</span>
-          </a>
-          <p className="mt-3.5 sm:mt-4 max-w-sm text-xs sm:text-sm leading-relaxed text-cream/70">
-            {SITE.description}
-          </p>
+    <footer className="rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-[#FBF0C0] py-10 sm:py-14 text-primary shadow-soft">
+      <div className="section-wrap max-w-2xl text-center">
+        {/* Logo / Badge central */}
+        <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-full bg-primary text-cream mx-auto shadow-xs">
+          <Icon name="coffee" className="h-5 w-5" />
         </div>
 
-        {FOOTER_COLUMNS.map((col) => (
-          <nav key={col.title} aria-label={col.title}>
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-[#E2A15F]">
-              {col.title}
-            </h3>
-            <ul className="mt-3 sm:mt-4 space-y-2">
-              {col.links.map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="inline-block py-0.5 text-xs sm:text-sm text-cream/75 transition hover:text-white"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        {/* Nombre de la marca */}
+        <h3 className="mt-2.5 font-serif text-xl sm:text-2xl font-bold text-primary">
+          {SITE.name}
+        </h3>
 
-        <div>
-          <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-[#E2A15F]">
-            Síguenos
-          </h3>
-          <ul className="mt-3 sm:mt-4 flex gap-2.5">
-            {SITE.social.map((s) => (
-              <li key={s.label}>
-                <a
-                  href={s.href}
-                  aria-label={s.label}
-                  className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-full bg-white/10 transition hover:-translate-y-0.5 hover:bg-caramel active:scale-95"
-                >
-                  <Icon name={s.icon} className="h-4 w-4" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <p className="section-wrap py-4 sm:py-5 text-[11px] sm:text-xs text-cream/55 text-center sm:text-left">
-          © {CURRENT_YEAR} {SITE.name} · {SITE.tagline}. Todos los derechos reservados.
+        {/* Tagline / Manifiesto */}
+        <p className="mt-1.5 text-[11px] sm:text-xs text-primary/70 leading-relaxed max-w-sm sm:max-w-md mx-auto">
+          {FOOTER_DATA.tagline}
         </p>
+
+        {/* Enlaces de navegación con separador de viñeta */}
+        <nav
+          className="mt-4 flex items-center justify-center gap-2.5 sm:gap-3 text-xs font-semibold text-primary/80 flex-wrap"
+          aria-label="Pie de página"
+        >
+          {FOOTER_DATA.links.map((link, idx) => (
+            <span key={link.label} className="inline-flex items-center gap-2.5 sm:gap-3">
+              <a href={link.href} className="hover:text-caramel transition">
+                {link.label}
+              </a>
+              {idx < FOOTER_DATA.links.length - 1 && (
+                <span className="text-primary/30 select-none">•</span>
+              )}
+            </span>
+          ))}
+        </nav>
+
+        {/* Botones circulares de redes y contacto */}
+        <div className="mt-4 flex items-center justify-center gap-3">
+          <a
+            href={SITE.social.find((s) => s.icon === 'instagram')?.href || '#'}
+            aria-label="Instagram de Black Coffee"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
+          >
+            <Icon name="instagram" className="h-4 w-4" />
+          </a>
+          <a
+            href="#ubicacion"
+            aria-label="Horarios de atención"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
+          >
+            <Icon name="clock" className="h-4 w-4" />
+          </a>
+          <a
+            href={SITE.phone ? `tel:${SITE.phone}` : '#'}
+            aria-label="Llamar a Black Coffee"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
+          >
+            <Icon name="phone" className="h-4 w-4" />
+          </a>
+        </div>
+
+        {/* Dirección y Derechos reservados */}
+        <div className="mt-5 text-[10px] sm:text-[11px] text-primary/60 space-y-1">
+          <p>{FOOTER_DATA.address}</p>
+          <p>{FOOTER_DATA.copyright}</p>
+        </div>
       </div>
     </footer>
   )
 }
+

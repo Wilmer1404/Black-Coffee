@@ -5,61 +5,76 @@ import Icon from './ui/Icon'
 import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
 
-function getBadgeClass(item) {
-  if (item.tone === 'green' || item.badge === 'Origen 100%') {
+function getBadgeClass(item, label) {
+  if (label === 'Favorito' || item.tone === 'orange' || item.id === 'iced-toast') {
+    return 'bg-orange text-white'
+  }
+  if (label === 'Para Llevar' || label === 'Para llevar') {
+    return 'bg-[#F8EACB] text-primary'
+  }
+  if (label === 'Origen 100%' || item.tone === 'green') {
     return 'bg-[#70B526] text-white'
   }
-  if (item.badge === 'Ice & Sweet' || item.badge === 'Ice') {
+  if (label === 'Ice & Sweet' || label === 'Ice') {
     return 'bg-[#49B5CA] text-white'
   }
-  if (item.badge === 'Caliente' || item.badge === 'Cold Brew') {
+  if (label === 'Caliente' || label === 'Cold Brew') {
     return 'bg-[#3B2211]/85 text-white'
   }
-  return 'bg-white/90 text-primary'
+  return 'bg-white/95 text-primary'
 }
 
 function MenuCard({ item, index }) {
-  const badgeClass = getBadgeClass(item)
+  const badgeLabel = item.feature?.text || item.badge
+  const badgeClass = getBadgeClass(item, badgeLabel)
 
   return (
-    <Reveal as="article" delay={index * 60} className="card-soft group h-full p-2.5 sm:p-2">
-      {/* Imagen con difuminado inferior hacia el color de la tarjeta */}
-      <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.4rem_1.4rem_2rem_1.4rem] sm:rounded-[1.6rem_1.6rem_2.4rem_1.6rem]">
-        <img
-          src={item.image}
-          alt={item.name}
-          loading="lazy"
-          className={`fade-to-b h-full w-full object-cover transition duration-700 group-hover:scale-105 ${item.position}`}
-        />
-        <span
-          className={`absolute left-3 top-3 rounded-full px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wide shadow-soft backdrop-blur ${badgeClass}`}
-        >
-          {item.badge}
-        </span>
+    <Reveal
+      as="article"
+      delay={index * 50}
+      className="group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-2.5 shadow-[0_4px_20px_rgba(59,34,17,0.06)] ring-1 ring-primary/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_-10px_rgba(59,34,17,0.18)]"
+    >
+      <div>
+        {/* Imagen cuadrada con bordes redondeados y badge flotante */}
+        <div className="relative aspect-square w-full overflow-hidden rounded-xl sm:rounded-2xl bg-sand/30">
+          <img
+            src={item.image}
+            alt={item.name}
+            loading="lazy"
+            className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${item.position}`}
+          />
+          {badgeLabel && (
+            <span
+              className={`absolute left-2 top-2 rounded-full px-2 py-0.5 text-[8.5px] sm:text-[9.5px] font-bold tracking-tight shadow-xs backdrop-blur-sm ${badgeClass}`}
+            >
+              {badgeLabel}
+            </span>
+          )}
+        </div>
+
+        {/* Textos del producto */}
+        <div className="px-1 pt-2 sm:px-1.5 sm:pt-2.5">
+          <h3 className="font-serif text-[13px] sm:text-[15.5px] font-bold leading-tight text-primary line-clamp-1">
+            {item.name}
+          </h3>
+          <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-[11.5px] leading-tight text-primary/65 line-clamp-1 sm:line-clamp-2 min-h-[14px] sm:min-h-[28px]">
+            {item.desc}
+          </p>
+        </div>
       </div>
 
-      <div className="flex flex-1 flex-col px-3 pb-3 pt-2 sm:pt-1">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-base sm:text-[1.05rem] font-semibold leading-tight">{item.name}</h3>
-          <span className="shrink-0 rounded-full bg-[#FBE3CF] px-2.5 py-1 text-[11px] font-bold leading-tight text-[#B4561B]">
-            {formatPrice(item.price)}
-          </span>
-        </div>
-        <p className="mt-2 flex-1 text-xs sm:text-[11.5px] leading-relaxed text-primary/65">{item.desc}</p>
-
-        <div className="mt-4 flex items-center justify-between border-t border-primary/10 pt-3">
-          <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-primary/80">
-            <Icon name={item.feature.icon} className="h-3.5 w-3.5" />
-            {item.feature.text}
-          </span>
-          <button
-            type="button"
-            aria-label={`Agregar ${item.name}`}
-            className="grid h-8 w-8 place-items-center rounded-full bg-[#F8E7A8] text-primary transition hover:bg-primary hover:text-cream active:scale-95"
-          >
-            <Icon name="plus" className="h-4 w-4" strokeWidth={2.2} />
-          </button>
-        </div>
+      {/* Fila inferior: Precio y Botón circular de añadir */}
+      <div className="mt-2.5 sm:mt-3 flex items-center justify-between px-1 pb-0.5 sm:px-1.5 sm:pb-1">
+        <span className="font-serif text-xs sm:text-sm font-bold text-primary tracking-tight">
+          {formatPrice(item.price)}
+        </span>
+        <button
+          type="button"
+          aria-label={`Agregar ${item.name}`}
+          className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full bg-[#F8EACB] text-primary transition duration-200 hover:bg-primary hover:text-cream active:scale-90 shadow-xs"
+        >
+          <Icon name="plus" className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2.4} />
+        </button>
       </div>
     </Reveal>
   )
@@ -77,18 +92,19 @@ export default function CoffeeMenu() {
   const canToggle = filtered.length > MENU_PREVIEW_COUNT
 
   return (
-    <section id="carta" className="bg-sand py-12 sm:py-16 lg:py-20">
+    <section id="carta" className="bg-sand py-10 sm:py-16 lg:py-20">
       <div className="section-wrap">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            tag={{ icon: 'star', text: 'Selección barista' }}
+            eyebrow="CARTA DE AUTOR"
             title="Hay un café para cada"
-            accent="momento."
-            description="Descubre sabores que hacen especial cada visita, preparados al punto exacto de balance aromático."
+            accent="momento"
+            description="Extracciones pacientes, notas aterciopeladas y frescura artesanal."
           />
-          {/* Barra de filtros adaptable: scroll táctil suave en móviles, wrap en tablets y laptops */}
+
+          {/* Barra de filtros: scroll táctil fluido sin barra fea en móviles, wrap en pantallas mayores */}
           <div
-            className="flex max-w-full items-center gap-1.5 overflow-x-auto no-scrollbar rounded-full border border-[#EBD9A0] bg-cream/80 p-1.5 sm:flex-wrap sm:rounded-[1.75rem] sm:p-2 md:max-w-md shrink-0"
+            className="flex max-w-full items-center gap-2 overflow-x-auto no-scrollbar py-1 shrink-0"
             role="tablist"
             aria-label="Filtrar carta"
           >
@@ -99,10 +115,10 @@ export default function CoffeeMenu() {
                 role="tab"
                 aria-selected={filter === f}
                 onClick={() => setFilter(f)}
-                className={`shrink-0 rounded-full px-3.5 sm:px-4 py-2 text-[11px] font-bold transition whitespace-nowrap ${
+                className={`shrink-0 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold transition whitespace-nowrap active:scale-95 ${
                   filter === f
-                    ? 'bg-primary text-cream shadow-soft'
-                    : 'text-primary/75 hover:bg-primary/5 hover:text-primary'
+                    ? 'bg-primary text-cream shadow-sm'
+                    : 'bg-[#F8EACB] text-primary/85 hover:bg-[#EEDCAE] hover:text-primary'
                 }`}
               >
                 {f}
@@ -111,24 +127,25 @@ export default function CoffeeMenu() {
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Cuadrícula responsiva: 2 columnas en móvil, 2 en tablet, 4 en desktop */}
+        <div className="mt-6 sm:mt-10 grid grid-cols-2 gap-2.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {visible.map((item, i) => (
             <MenuCard key={item.id} item={item} index={i} />
           ))}
         </div>
 
         {canToggle && (
-          <div className="mt-8 sm:mt-10 text-center">
+          <div className="mt-7 sm:mt-10">
             <button
               type="button"
               onClick={() => setShowAll((v) => !v)}
               aria-expanded={showAll}
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#E4D19B] bg-[#F8EACB] px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-primary transition duration-300 hover:bg-[#F3E0B5] hover:shadow-soft active:scale-[0.98]"
+              className="flex w-full sm:w-auto sm:mx-auto min-h-[46px] items-center justify-center gap-2 rounded-2xl sm:rounded-full bg-[#F5E6BF] px-6 py-3 text-xs sm:text-sm font-bold text-primary transition duration-300 hover:bg-[#EEDCAE] hover:shadow-soft active:scale-[0.98]"
             >
-              {showAll ? 'Ver menos' : 'Ver carta completa'}
+              <span>{showAll ? 'Ver menos opciones' : 'Ver carta y opciones completas'}</span>
               <Icon
-                name="arrow"
-                className={`h-4 w-4 transition duration-300 ${showAll ? '-rotate-90' : 'rotate-90'}`}
+                name={showAll ? 'arrow' : 'book'}
+                className={`h-4 w-4 transition duration-300 ${showAll ? '-rotate-90' : ''}`}
               />
             </button>
           </div>
@@ -137,3 +154,4 @@ export default function CoffeeMenu() {
     </section>
   )
 }
+

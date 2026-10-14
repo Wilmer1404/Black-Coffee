@@ -1,10 +1,8 @@
-import { GALLERY_HEADING, GALLERY_IMAGES, GALLERY_PERKS, SPACES } from '../data/gallery'
-import Button from './ui/Button'
+import { GALLERY_CARDS, GALLERY_HEADING, GALLERY_IMAGES } from '../data/gallery'
 import Icon from './ui/Icon'
 import Reveal from './ui/Reveal'
-import SectionHeading from './ui/SectionHeading'
 
-/** Dos columnas escalonadas: [tall, short] y [short, tall]. */
+/** Dos columnas escalonadas: [tall, short] y [short, tall]. Conserva el modelo y forma original de imágenes */
 const COLUMNS = [GALLERY_IMAGES.slice(0, 2), GALLERY_IMAGES.slice(2, 4)]
 
 function CollageImage({ img, delay }) {
@@ -25,66 +23,69 @@ function CollageImage({ img, delay }) {
 
 export default function Gallery() {
   return (
-    <section id="galeria" className="bg-cream py-12 sm:py-16 lg:py-24">
+    <section id="galeria" className="bg-cream py-10 sm:py-16 lg:py-24">
       <div className="section-wrap">
-        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
-          <div>
-            <SectionHeading
-              tag={GALLERY_HEADING.tag}
-              title={GALLERY_HEADING.title}
-              accent={GALLERY_HEADING.accent}
-              description={GALLERY_HEADING.description}
-            />
-            <ul className="mt-5 sm:mt-6 space-y-3">
-              {GALLERY_PERKS.map((p, i) => (
-                <Reveal
-                  as="li"
-                  key={p.title}
-                  delay={i * 80}
-                  className="flex items-start gap-3 rounded-2xl bg-[#FBF0C0] p-3.5 sm:p-4 ring-1 ring-[#EBD9A0] transition hover:-translate-y-0.5"
-                >
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cream text-primary">
-                    <Icon name={p.icon} className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <h3 className="text-sm sm:text-[15px] font-semibold">{p.title}</h3>
-                    <p className="mt-0.5 text-xs sm:text-[11.5px] text-primary/70">{p.text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </ul>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 sm:gap-8 lg:gap-12 items-center">
+          {/* Cabecera (en móvil: 1º lugar arriba) */}
+          <div className="lg:col-start-1 lg:row-start-1">
+            <Reveal>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-orange" />
+                <p className="eyebrow">{GALLERY_HEADING.eyebrow}</p>
+              </div>
+              <h2 className="mt-2 text-2xl sm:text-3xl lg:text-[2.65rem] font-serif font-semibold leading-[1.15] text-primary">
+                {GALLERY_HEADING.title}{' '}
+                <em className="font-medium text-caramel">{GALLERY_HEADING.accent}</em>
+              </h2>
+              <p className="mt-2.5 sm:mt-3 text-xs sm:text-[13px] leading-relaxed text-primary/75 max-w-lg">
+                {GALLERY_HEADING.description}
+              </p>
+            </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-md sm:max-w-lg mx-auto lg:max-w-none w-full">
-            {COLUMNS.map((col, c) => (
-              <div key={c} className={`flex flex-col gap-3 sm:gap-4 ${c === 1 ? '-mt-3 sm:-mt-6' : 'sm:mt-4'}`}>
-                {col.map((img, i) => (
-                  <CollageImage key={img.alt} img={img} delay={(c * 2 + i) * 80} />
-                ))}
-              </div>
+          {/* Collage de fotos (en móvil: 2º lugar debajo de la cabecera; en desktop: columna derecha) */}
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 my-2 sm:my-4 lg:my-0">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-md sm:max-w-lg mx-auto lg:max-w-none w-full">
+              {COLUMNS.map((col, c) => (
+                <div
+                  key={c}
+                  className={`flex flex-col gap-3 sm:gap-4 ${c === 1 ? '-mt-3 sm:-mt-6' : 'sm:mt-4'}`}
+                >
+                  {col.map((img, i) => (
+                    <CollageImage key={img.alt} img={img} delay={(c * 2 + i) * 80} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tarjetas (en móvil: 3º lugar debajo de las fotos; en desktop: debajo del texto) */}
+          <div className="lg:col-start-1 lg:row-start-2 space-y-3 sm:space-y-4">
+            {GALLERY_CARDS.map((c, i) => (
+              <Reveal
+                key={c.title}
+                delay={i * 80}
+                className="flex items-start gap-3.5 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-soft ring-1 ring-primary/5 transition hover:-translate-y-0.5"
+              >
+                <span
+                  className={`grid h-10 w-10 sm:h-11 sm:w-11 shrink-0 place-items-center rounded-full shadow-xs ${c.iconBg}`}
+                >
+                  <Icon name={c.icon} className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-primary">
+                    {c.title}
+                  </h3>
+                  <p className="mt-1 text-xs sm:text-[12.5px] leading-relaxed text-primary/70">
+                    {c.text}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </div>
-
-        <div className="mt-12 sm:mt-16 grid gap-4 sm:gap-5 md:grid-cols-2">
-          {SPACES.map((s, i) => (
-            <Reveal
-              key={s.title}
-              delay={i * 100}
-              className="card-soft flex-col items-start p-6 sm:p-7"
-            >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#FBE3CF] text-[#B4561B]">
-                <Icon name={s.icon} className="h-6 w-6" />
-              </span>
-              <h3 className="mt-4 text-lg sm:text-xl font-semibold">{s.title}</h3>
-              <p className="mt-1 text-xs sm:text-sm text-primary/70 leading-relaxed">{s.text}</p>
-              <Button href="#ubicacion" size="sm" className="mt-4">
-                {s.cta}
-              </Button>
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>
   )
 }
+
