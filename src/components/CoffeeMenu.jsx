@@ -1,14 +1,25 @@
 import { useMemo, useState } from 'react'
 import { MENU_FILTERS, MENU_ITEMS, MENU_PREVIEW_COUNT } from '../data/menu'
 import { formatPrice } from '../utils/format'
-import Button from './ui/Button'
 import Icon from './ui/Icon'
 import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
 
+function getBadgeClass(item) {
+  if (item.tone === 'green' || item.badge === 'Origen 100%') {
+    return 'bg-[#70B526] text-white'
+  }
+  if (item.badge === 'Ice & Sweet' || item.badge === 'Ice') {
+    return 'bg-[#49B5CA] text-white'
+  }
+  if (item.badge === 'Caliente' || item.badge === 'Cold Brew') {
+    return 'bg-[#3B2211]/85 text-white'
+  }
+  return 'bg-white/90 text-primary'
+}
+
 function MenuCard({ item, index }) {
-  const badgeTone =
-    item.tone === 'green' ? 'bg-[#A6E07E] text-[#1F4A0E]' : 'bg-white/90 text-primary'
+  const badgeClass = getBadgeClass(item)
 
   return (
     <Reveal as="article" delay={index * 60} className="card-soft group h-full p-2.5 sm:p-2">
@@ -21,7 +32,7 @@ function MenuCard({ item, index }) {
           className={`fade-to-b h-full w-full object-cover transition duration-700 group-hover:scale-105 ${item.position}`}
         />
         <span
-          className={`absolute left-3 top-3 rounded-full px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wide shadow-soft backdrop-blur ${badgeTone}`}
+          className={`absolute left-3 top-3 rounded-full px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wide shadow-soft backdrop-blur ${badgeClass}`}
         >
           {item.badge}
         </span>
@@ -108,10 +119,18 @@ export default function CoffeeMenu() {
 
         {canToggle && (
           <div className="mt-8 sm:mt-10 text-center">
-            <Button variant="outline" onClick={() => setShowAll((v) => !v)} aria-expanded={showAll}>
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              aria-expanded={showAll}
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#E4D19B] bg-[#F8EACB] px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-primary transition duration-300 hover:bg-[#F3E0B5] hover:shadow-soft active:scale-[0.98]"
+            >
               {showAll ? 'Ver menos' : 'Ver carta completa'}
-              <Icon name="arrow" className={`h-4 w-4 transition duration-300 ${showAll ? '-rotate-90' : 'rotate-90'}`} />
-            </Button>
+              <Icon
+                name="arrow"
+                className={`h-4 w-4 transition duration-300 ${showAll ? '-rotate-90' : 'rotate-90'}`}
+              />
+            </button>
           </div>
         )}
       </div>

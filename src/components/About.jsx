@@ -23,20 +23,19 @@ export default function About() {
       <div className="section-wrap grid items-center gap-6 sm:gap-8 lg:grid-cols-[1fr_1.15fr]">
         {/* En móvil y tablet: tarjeta fotográfica con la cita integrada */}
         <Reveal className="lg:hidden">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-soft ring-1 ring-primary/5">
+          <div className="relative overflow-hidden rounded-[2.25rem] bg-[#3B2211] p-2 shadow-soft">
             <img
               src={IMAGES.barista}
               alt="Barista cuidando el aroma del café de especialidad"
               loading="lazy"
-              className="h-56 sm:h-72 w-full object-cover object-[center_35%]"
+              className="h-64 sm:h-72 w-full rounded-[1.75rem] object-cover object-[center_35%]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-            <figure className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-xs rounded-xl sm:rounded-2xl bg-cream/95 p-3.5 sm:p-4 shadow-soft ring-1 ring-primary/5 backdrop-blur-md">
+            <figure className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs rounded-2xl bg-cream/95 p-3.5 sm:p-4 shadow-soft ring-1 ring-primary/5 backdrop-blur-md">
               <figcaption className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-caramel">
                 <Icon name="quote" className="h-3.5 w-3.5" strokeWidth={2.2} />
                 {ABOUT.quote.label}
               </figcaption>
-              <blockquote className="mt-1.5 font-serif text-xs sm:text-sm italic leading-snug text-primary">
+              <blockquote className="mt-1 font-serif text-xs sm:text-sm italic leading-snug text-primary">
                 {ABOUT.quote.text}
               </blockquote>
             </figure>
@@ -60,7 +59,7 @@ export default function About() {
         {/* Tarjeta de contenido y manifiesto */}
         <Reveal
           delay={100}
-          className="rounded-[1.75rem] sm:rounded-[2rem] bg-cream/90 p-5 sm:p-8 lg:p-10 shadow-soft ring-1 ring-primary/5 backdrop-blur-md"
+          className="card-soft p-6 sm:p-8 lg:p-10"
         >
           <SectionHeading tag={ABOUT.tag} title={ABOUT.title} accent={ABOUT.accent} />
 

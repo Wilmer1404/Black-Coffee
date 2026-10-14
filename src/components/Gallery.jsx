@@ -71,18 +71,16 @@ export default function Gallery() {
             <Reveal
               key={s.title}
               delay={i * 100}
-              className="card-soft flex-col sm:flex-row items-start gap-4 p-5 sm:p-7"
+              className="card-soft flex-col items-start p-6 sm:p-7"
             >
-              <span className="grid h-11 w-11 sm:h-12 sm:w-12 shrink-0 place-items-center rounded-2xl bg-[#FBE3CF] text-[#B4561B]">
-                <Icon name={s.icon} className="h-5 w-5 sm:h-6 sm:w-6" />
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#FBE3CF] text-[#B4561B]">
+                <Icon name={s.icon} className="h-6 w-6" />
               </span>
-              <div className="flex flex-col items-start gap-2">
-                <h3 className="text-lg sm:text-xl font-semibold">{s.title}</h3>
-                <p className="text-xs sm:text-sm text-primary/70 leading-relaxed">{s.text}</p>
-                <Button href="#ubicacion" size="sm" className="mt-1 sm:mt-2">
-                  {s.cta}
-                </Button>
-              </div>
+              <h3 className="mt-4 text-lg sm:text-xl font-semibold">{s.title}</h3>
+              <p className="mt-1 text-xs sm:text-sm text-primary/70 leading-relaxed">{s.text}</p>
+              <Button href="#ubicacion" size="sm" className="mt-4">
+                {s.cta}
+              </Button>
             </Reveal>
           ))}
         </div>

@@ -97,7 +97,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-primary/20 transition hover:bg-primary/5 active:scale-95 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-2xl bg-[#F4E9CD] text-primary transition hover:bg-[#ebdcb4] active:scale-95 lg:hidden shadow-xs"
           >
             <Icon name={open ? 'close' : 'menu'} className="h-5 w-5" />
           </button>
