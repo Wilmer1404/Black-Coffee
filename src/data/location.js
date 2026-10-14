@@ -1,12 +1,10 @@
 import { SITE } from './site'
 
-/** Ajusta el bbox/coordenadas con la ubicación real del local. */
 export const MAP_SRC =
-  'https://www.openstreetmap.org/export/embed.html?bbox=-77.0600%2C-12.1400%2C-76.9900%2C-12.0900&layer=mapnik'
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.082147812617!2d-80.8224264!3d-5.554840699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9049876cd28b110b%3A0xf99a1fb3f7c97d6b!2sBlack%20Coffee%20-%20Ice%20%26%20Hot!5e0!3m2!1ses!2spe!4v1791937132828!5m2!1ses!2spe'
 
-export const DIRECTIONS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${SITE.name} ${SITE.address}`,
-)}`
+export const DIRECTIONS_URL =
+  'https://www.google.com/maps/place/Black+Coffee+-+Ice+%26+Hot/@-5.5548407,-80.8224264,17z'
 
 export const LOCATION_CARDS = [
   {

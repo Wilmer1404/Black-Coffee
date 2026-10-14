@@ -2,14 +2,14 @@ const variants = {
   dark: 'btn-dark',
   outline: 'btn-outline',
   accent:
-    'inline-flex items-center justify-center gap-2 rounded-full bg-caramel px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#b3631f] hover:shadow-soft',
+    'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-caramel px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#b3631f] hover:shadow-soft active:scale-[0.98]',
   light:
-    'inline-flex items-center justify-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-soft',
+    'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-cream px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-soft active:scale-[0.98]',
 }
 
 const sizes = {
   md: '',
-  sm: '!px-4 !py-2 !text-xs',
+  sm: '!px-3.5 sm:!px-4 !py-2 !text-xs !min-h-[38px]',
 }
 
 /** Botón/enlace: si recibe `href` renderiza <a>, de lo contrario <button>. */

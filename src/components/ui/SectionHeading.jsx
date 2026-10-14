@@ -31,12 +31,20 @@ export default function SectionHeading({
         </span>
       )}
       {eyebrow && <p className={`eyebrow ${light ? '!text-[#E2A15F]' : ''}`}>{eyebrow}</p>}
-      <Tag className={`${tag || eyebrow ? 'mt-3' : ''} text-4xl font-semibold leading-[1.1] sm:text-[2.75rem]`}>
+      <Tag
+        className={`${
+          tag || eyebrow ? 'mt-2.5 sm:mt-3' : ''
+        } text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-semibold leading-[1.18] sm:leading-[1.12]`}
+      >
         {title}{' '}
         <em className={`font-medium ${light ? 'text-[#E2A15F]' : 'text-caramel'}`}>{accent}</em>
       </Tag>
       {description && (
-        <p className={`mt-4 text-sm leading-relaxed ${light ? 'text-cream/75' : 'text-primary/65'}`}>
+        <p
+          className={`mt-2.5 sm:mt-4 text-xs sm:text-sm leading-relaxed ${
+            light ? 'text-cream/75' : 'text-primary/65'
+          }`}
+        >
           {description}
         </p>
       )}
