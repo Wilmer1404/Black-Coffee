@@ -1,6 +1,6 @@
 /**
- * Contenido global del sitio. Todo el texto "editable" vive en `src/data`
- * para que los componentes solo se ocupen de la presentación.
+ * Contenido global del sitio Black Coffee - Ice & Hot (Sechura).
+ * Textos que transmiten paz, calidez, calma y café de especialidad.
  */
 
 export const IMAGES = {
@@ -13,76 +13,97 @@ export const IMAGES = {
 
 export const SITE = {
   name: 'Black Coffee',
-  tagline: 'Ice & Hot',
+  tagline: 'Ice & Hot · Sechura',
   description:
-    'Café de especialidad, libros y buenas partidas. Tu pausa favorita del día.',
-  address: 'Av. Principal 123, Centro',
-  phone: '+51 900 000 000',
-  email: 'hola@blackcoffee.com',
+    'Cafetería de especialidad en Sechura. Un remanso de paz y tranquilidad con granos seleccionados de origen, bebidas frías, calientes y tragos de autor.',
+  address: 'Calle San Martín #263, Sechura, Piura',
+  phone: '+51 984 088 265',
+  phoneDisplay: '984088265',
+  email: 'contacto@blackcoffee.com',
+  hours: 'Lunes a Domingo: 8:00 am – 11:30 pm',
+  whatsappUrl:
+    'https://wa.me/51984088265?text=Hola%20Black%20Coffee%2C%20quisiera%20hacer%20un%20pedido%20o%20consulta',
   social: [
-    { label: 'Instagram', icon: 'instagram', href: '#' },
-    { label: 'Facebook', icon: 'facebook', href: '#' },
-    { label: 'TikTok', icon: 'tiktok', href: '#' },
+    {
+      label: 'Instagram',
+      icon: 'instagram',
+      href: 'https://www.instagram.com/blackcoffeeicehot/',
+    },
+    {
+      label: 'Facebook',
+      icon: 'facebook',
+      href: 'https://web.facebook.com/juanChblackcoffe',
+    },
+    {
+      label: 'WhatsApp',
+      icon: 'whatsapp',
+      href: 'https://wa.me/51984088265?text=Hola%20Black%20Coffee%2C%20quisiera%20hacer%20un%20pedido%20o%20consulta',
+    },
   ],
 }
 
 /** `href` debe coincidir con el `id` de cada sección (lo usa el scroll-spy). */
 export const NAV_LINKS = [
-  { label: 'Conoce la experiencia', href: '#experiencia' },
+  { label: 'Nuestra Esencia', href: '#experiencia' },
   { label: 'Carta', href: '#carta' },
-  { label: 'Planes', href: '#planes' },
-  { label: 'Galería', href: '#galeria' },
-  { label: 'Eventos', href: '#eventos' },
+  { label: 'Momentos', href: '#planes' },
+  { label: 'Espacios', href: '#galeria' },
+  { label: 'Encuentros', href: '#eventos' },
   { label: 'Ubicación', href: '#ubicacion' },
 ]
 
 export const HERO = {
-  eyebrow: 'Café de especialidad',
-  title: 'Tu pausa favorita',
-  accent: 'del día.',
-  text: 'Granos seleccionados, bebidas frías y calientes, y un rincón cálido para leer, jugar o simplemente conversar. Aquí cada taza tiene una historia.',
+  eyebrow: 'Cafetería de Especialidad en Sechura',
+  title: 'Tu refugio de paz',
+  accent: 'en cada taza.',
+  text: 'Respira hondo y regálate una pausa. En Black Coffee unimos granos seleccionados de origen con bebidas calientes, frías y tragos de autor, servidos con calidez en un rincón donde las prisas se desvanecen.',
+  card: {
+    title: 'Pausa & Serenidad',
+    subtitle: 'El ritmo tranquilo que tu día merece, de 8 am a 11:30 pm.',
+  },
   stats: [
-    { icon: 'coffee', value: '+50', label: 'Cafés y bebidas' },
-    { icon: 'sparkle', value: 'Ice & Hot', label: 'Frío o caliente' },
-    { icon: 'users', value: '100%', label: 'Buen ambiente' },
+    { icon: 'coffee', value: 'Origen', label: 'Granos seleccionados' },
+    { icon: 'sparkle', value: 'Ice & Hot', label: 'Frías, calientes y tragos' },
+    { icon: 'feather', value: 'Paz Total', label: '¡Listos para servirles! 💙 💚' },
   ],
 }
 
 export const ABOUT = {
-  tag: { icon: 'feather', text: 'Nuestra historia & manifiesto' },
-  heroSubtitle: 'Nacido para devolverle la calma a tu rutina.',
-  title: 'Más que café, un lugar',
-  accent: 'para conectar.',
+  tag: { icon: 'feather', text: 'Nuestra esencia & hospitalidad' },
+  heroSubtitle: 'El aroma a café de especialidad en un espacio donde el tiempo se detiene.',
+  title: 'Más que una taza, un bálsamo',
+  accent: 'de serenidad.',
   quote: {
-    label: 'Filosofía',
-    text: 'El café sabe mejor cuando el tiempo se detiene un momento.',
+    label: 'Filosofía Black Coffee',
+    text: 'El café sabe mejor cuando se disfruta despacio, con calma y en buena sintonía.',
   },
   paragraphs: [
-    'Creemos que los mejores momentos suceden cuando no hay prisa. En Black Coffee unimos el rigor del grano tostado a mano con estanterías llenas de lecturas compartidas y partidas interminables entre amigos.',
+    'En Black Coffee creamos un santuario de paz en pleno centro de Sechura. Un lugar donde la calidez del ambiente, la música apacible y el aroma envolvente a café recién tostado te invitan a dejar afuera el estrés y reconectar con la tranquilidad.',
+    'Nuestros baristas calificados cuidan cada método de extracción y cada receta artesanal —desde una taza humeante hasta refrescantes bebidas frías y tragos de autor con café—. ¡Estamos listos para servirles con todo el cariño! 💙 💚',
   ],
   features: [
     {
       icon: 'flame',
-      title: 'Tueste Fresco',
-      text: 'Lotes pequeños tostados cada 48 horas en tienda.',
+      title: 'Granos de Origen',
+      text: 'Café de especialidad con perfiles limpios y notas aromáticas únicas.',
       iconBg: 'bg-[#3B2211] text-cream',
     },
     {
       icon: 'users',
-      title: 'Comunidad Real',
-      text: 'Mesas amplias, enchufes libres y conversación viva.',
-      iconBg: 'bg-[#FF9333] text-white',
+      title: 'Baristas Calificados',
+      text: 'Pasión por el detalle, servicio dedicado y una cálida atención.',
+      iconBg: 'bg-[#70B526] text-white',
     },
   ],
-  link: { label: 'Conoce nuestra esencia', href: '#galeria' },
+  link: { label: 'Conoce nuestros espacios', href: '#galeria' },
 }
 
 export const PROMO = {
-  tag: { icon: 'feather', text: 'Novedad de temporada' },
-  title: 'Algo delicioso',
-  accent: 'está por llegar.',
-  text: "Nuestras creaciones frías con crema batida especial, hielo artesanal y maridajes frescos de tostadas con fresa. Pregunta en mostrador por el combo 'Dulce Pausa'.",
-  cta: { label: 'Descubre las novedades', href: '#carta' },
-  note: { icon: 'ticket', text: 'Disponible solo por este mes' },
+  tag: { icon: 'sparkle', text: 'Creaciones de la casa' },
+  title: 'Bebidas frías, calientes',
+  accent: 'y tragos de café.',
+  text: 'Déjate sorprender por nuestras infusiones lentas en frío, cócteles de autor a base de espresso y combinaciones dulces artesanales. La compañía perfecta para saborear una tarde apacible.',
+  cta: { label: 'Explorar la carta', href: '#carta' },
+  note: { icon: 'clock', text: 'Atención continua: 8:00 am a 11:30 pm' },
 }
 

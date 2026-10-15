@@ -66,9 +66,11 @@ export default function Hero() {
             />
           </div>
           <div className="absolute -bottom-2 left-2 lg:bottom-4 lg:left-8 max-w-[13.5rem] lg:max-w-[15rem] rounded-2xl bg-primary/95 p-3.5 lg:p-4 text-cream shadow-soft backdrop-blur ring-1 ring-white/10">
-            <p className="font-serif text-base lg:text-lg leading-snug">Café de buenos momentos</p>
+            <p className="font-serif text-base lg:text-lg leading-snug">
+              {HERO.card?.title || 'Pausa & Serenidad'}
+            </p>
             <p className="mt-1 text-[11px] lg:text-xs text-cream/75">
-              Hecho para compartir, de la mañana a la noche.
+              {HERO.card?.subtitle || 'El ritmo tranquilo que tu día merece, de 8 am a 11:30 pm.'}
             </p>
           </div>
         </Reveal>

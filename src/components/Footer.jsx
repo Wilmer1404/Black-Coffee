@@ -39,24 +39,49 @@ export default function Footer() {
         </nav>
 
         {/* Botones circulares de redes y contacto */}
-        <div className="mt-4 flex items-center justify-center gap-3">
+        <div className="mt-4 flex items-center justify-center gap-2.5 sm:gap-3 flex-wrap">
           <a
-            href={SITE.social.find((s) => s.icon === 'instagram')?.href || '#'}
+            href={SITE.social.find((s) => s.icon === 'instagram')?.href || 'https://www.instagram.com/blackcoffeeicehot/'}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram de Black Coffee"
+            title="Instagram"
             className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
           >
             <Icon name="instagram" className="h-4 w-4" />
           </a>
           <a
+            href={SITE.social.find((s) => s.icon === 'facebook')?.href || 'https://web.facebook.com/juanChblackcoffe'}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook de Black Coffee"
+            title="Facebook"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
+          >
+            <Icon name="facebook" className="h-4 w-4" />
+          </a>
+          <a
+            href={SITE.whatsappUrl || 'https://wa.me/51984088265'}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp de Black Coffee (984088265)"
+            title="WhatsApp Pedidos"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-[#10C65A] hover:bg-[#0EB552] text-white transition shadow-xs hover:-translate-y-0.5 active:scale-95"
+          >
+            <Icon name="whatsapp" className="h-4 w-4" />
+          </a>
+          <a
             href="#ubicacion"
-            aria-label="Horarios de atención"
+            aria-label="Horarios de atención (8:00 am a 11:30 pm)"
+            title="Horarios de atención"
             className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
           >
             <Icon name="clock" className="h-4 w-4" />
           </a>
           <a
-            href={SITE.phone ? `tel:${SITE.phone}` : '#'}
-            aria-label="Llamar a Black Coffee"
+            href={SITE.phone ? `tel:${SITE.phone}` : 'tel:+51984088265'}
+            aria-label="Llamar a Black Coffee (984088265)"
+            title="Llamar"
             className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-cream/90 hover:bg-white text-primary transition shadow-xs hover:-translate-y-0.5 active:scale-95"
           >
             <Icon name="phone" className="h-4 w-4" />

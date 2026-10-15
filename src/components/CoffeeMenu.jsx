@@ -9,16 +9,16 @@ function getBadgeClass(item, label) {
   if (label === 'Favorito' || item.tone === 'orange' || item.id === 'iced-toast') {
     return 'bg-orange text-white'
   }
-  if (label === 'Para Llevar' || label === 'Para llevar') {
+  if (label === 'Para Llevar' || label === 'Para llevar' || label === 'Artesanal') {
     return 'bg-[#F8EACB] text-primary'
   }
-  if (label === 'Origen 100%' || item.tone === 'green') {
+  if (label === 'Origen 100%' || label === 'Granos de Origen' || item.tone === 'green') {
     return 'bg-[#70B526] text-white'
   }
-  if (label === 'Ice & Sweet' || label === 'Ice') {
+  if (label === 'Ice & Sweet' || label === 'Ice' || label === 'Bebida Fría' || label === 'Ice & Dulce' || label === 'Refrescante') {
     return 'bg-[#49B5CA] text-white'
   }
-  if (label === 'Caliente' || label === 'Cold Brew') {
+  if (label === 'Caliente' || label === 'Cold Brew' || label === 'Trago de Autor' || label === 'Trago con Café' || label === 'Especialidad') {
     return 'bg-[#3B2211]/85 text-white'
   }
   return 'bg-white/95 text-primary'
@@ -96,10 +96,10 @@ export default function CoffeeMenu() {
       <div className="section-wrap">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="CARTA DE AUTOR"
-            title="Hay un café para cada"
-            accent="momento"
-            description="Extracciones pacientes, notas aterciopeladas y frescura artesanal."
+            eyebrow="CARTA DE ESPECIALIDAD"
+            title="Bebidas para saborear"
+            accent="con calma"
+            description="Granos de origen, bebidas frías, calientes y tragos de autor preparados con mimo y paciencia."
           />
 
           {/* Barra de filtros: scroll táctil fluido sin barra fea en móviles, wrap en pantallas mayores */}

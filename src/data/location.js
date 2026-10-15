@@ -5,35 +5,44 @@ export const DIRECTIONS_URL =
   'https://www.google.com/maps/place/Black+Coffee+-+Ice+%26+Hot/@-5.5548407,-80.8224264,17z'
 
 export const WHATSAPP_URL =
-  'https://wa.me/51900000000?text=Hola%20Black%20Coffee%2C%20quisiera%20hacer%20una%20consulta'
+  'https://wa.me/51984088265?text=Hola%20Black%20Coffee%2C%20quisiera%20hacer%20un%20pedido%20o%20consulta'
 
 export const LOCATION_HEADING = {
-  eyebrow: 'ENCUÉNTRANOS',
-  title: 'Visita Black Coffee',
-  description: 'Ven a compartir una taza o lleva tu dosis diaria recién molida.',
+  eyebrow: 'VISÍTANOS EN SECHURA',
+  title: 'Tu refugio en Calle San Martín',
+  description:
+    'Un ambiente creado para regalarte calma, aromas reconfortantes y las mejores bebidas. Ven a disfrutar o pide para llevar.',
 }
 
 export const LOCATION_CARDS = [
   {
     icon: 'pin',
-    title: 'Calle del Grano 142',
-    desc: 'Distrito Atelier • Estacionamiento de bicicletas libre',
+    title: 'Calle San Martín #263',
+    desc: 'Sechura, Piura • Cafetería de especialidad en el corazón de la ciudad',
   },
   {
     icon: 'clock',
     title: 'Lunes a Domingo',
-    desc: '07:30 – 21:00 hrs (Barra de filtrados hasta las 20:30)',
+    desc: '08:00 am – 11:30 pm • Atención continua de la mañana a la noche',
+  },
+  {
+    icon: 'phone',
+    title: 'Pedidos & WhatsApp',
+    desc: '📲 984088265 • ¡Listos para servirles con la mejor atención!',
   },
 ]
 
 export const FOOTER_DATA = {
   tagline:
-    'Third-wave slow roasted origin coffees, pristine cold-extracts & hand-poured infusions.',
+    'Cafetería de especialidad en Sechura. Granos seleccionados de origen, bebidas frías, calientes y tragos de autor. ¡Listos para servirles! 💙 💚',
   links: [
-    { label: 'Origin Story', href: '#experiencia' },
-    { label: 'Beans & Roast', href: '#carta' },
-    { label: 'Brew Guide', href: '#planes' },
+    { label: 'Inicio', href: '#inicio' },
+    { label: 'Nuestra Esencia', href: '#experiencia' },
+    { label: 'Carta', href: '#carta' },
+    { label: 'Momentos', href: '#planes' },
+    { label: 'Espacios', href: '#galeria' },
+    { label: 'Ubicación', href: '#ubicacion' },
   ],
-  address: '74 Roastery Lane, Atelier District • Daily 06:30 – 19:00',
-  copyright: '© 2025 Black Coffee Craft Co. All rights reserved.',
+  address: 'Calle San Martín #263, Sechura, Piura • Todos los días de 8:00 am a 11:30 pm',
+  copyright: '© 2025 Black Coffee · Ice & Hot. Un rincón de paz y buen café.',
 }

@@ -1,60 +1,59 @@
 import { IMAGES } from './site'
 
 export const GALLERY_HEADING = {
-  eyebrow: 'LUDOTECA & BIBLIOTECA',
-  title: 'Café, libros y buenas',
-  accent: 'partidas',
-  description: 'Sin cuotas extra por jugar: sólo siéntate, pide tu bebida y déjate llevar.',
+  eyebrow: 'CALMA & HOSPITALIDAD',
+  title: 'Un remanso de tranquilidad',
+  accent: 'en Sechura',
+  description: 'Música suave, aroma a café tostado de origen y rincones creados para que cada visita te llene de paz.',
 }
 
 export const GALLERY_CARDS = [
   {
-    icon: 'dice',
+    icon: 'coffee',
     iconBg: 'bg-[#3B2211] text-cream',
-    title: 'Espacio de Juegos',
-    text: 'Más de 20 títulos listos en estantería: desde estrategia rápida hasta partidas casuales de 15 minutos.',
+    title: 'Baristas Calificados',
+    text: 'Cuidamos cada método de extracción y preparamos tus bebidas favoritas con paciencia y calidez. ¡Listos para servirles! 💙 💚',
   },
   {
     icon: 'book',
     iconBg: 'bg-caramel text-cream',
-    title: 'Biblioteca Abierta',
-    text: 'Novelas, ensayos sobre diseño y botánica disponibles para hojear libremente mientras tomas tu infusión.',
+    title: 'Lectura y Sosiego',
+    text: 'Estanterías con lecturas abiertas y luz natural para dejar a un lado el celular y entregarte a un momento de serenidad.',
   },
 ]
 
 /**
- * Collage en forma de arcos. Cada foto lleva su etiqueta flotante.
- * Reemplaza `src` por las fotos reales de juegos cuando estén en /public/images.
+ * Collage en forma de arcos con imágenes armoniosas y etiquetas descriptivas.
  */
 export const GALLERY_IMAGES = [
   {
     src: IMAGES.toast,
-    label: 'Desayunos',
-    alt: 'Tostadas francesas con fruta junto a un batido',
+    label: 'Desayunos & Dulces',
+    alt: 'Tostadas francesas con fruta fresca y smoothie artesanal',
     shape: 'rounded-[999px_999px_1.75rem_1.75rem]',
     position: 'object-[45%_75%]',
     layout: 'aspect-[3/4.1]',
   },
   {
     src: IMAGES.reader,
-    label: 'Lectura Tranquila',
-    alt: 'Cliente leyendo un libro con una taza de café',
+    label: 'Lectura en Calma',
+    alt: 'Momento de lectura tranquila con una taza de café caliente',
     shape: 'rounded-[1.75rem_999px_1.75rem_1.75rem]',
     position: 'object-[center_30%]',
     layout: 'aspect-[4/3]',
   },
   {
     src: IMAGES.espresso,
-    label: 'Espresso',
-    alt: 'Espresso junto a granos formando el nombre del café',
+    label: 'Granos de Especialidad',
+    alt: 'Extracción de espresso con granos de origen seleccionados',
     shape: 'rounded-[1.75rem_1.75rem_1.75rem_1.75rem]',
     position: 'object-[center_30%]',
     layout: 'aspect-[4/3]',
   },
   {
     src: IMAGES.barista,
-    label: 'Aromas',
-    alt: 'Barista oliendo granos de café',
+    label: 'Aroma & Pasión',
+    alt: 'Barista apreciando las notas aromáticas del café de especialidad',
     shape: 'rounded-[1.75rem_1.75rem_999px_999px]',
     position: 'object-[center_40%]',
     layout: 'aspect-[3/4.1]',
@@ -63,15 +62,15 @@ export const GALLERY_IMAGES = [
 
 export const SPACES = [
   {
-    icon: 'dice',
-    title: 'Espacio de Juegos',
-    text: 'Mesas amplias y juegos para pasar la tarde con amigos.',
-    cta: 'Reservar mesa',
+    icon: 'coffee',
+    title: 'Barra de Especialidad',
+    text: 'Observa la preparación pausada de tus bebidas frías, calientes o tragos de autor.',
+    cta: 'Ver la carta',
   },
   {
     icon: 'book',
-    title: 'Espacio de Lectura',
-    text: 'Un rincón silencioso con buena luz y un café a tu lado.',
-    cta: 'Ver horarios',
+    title: 'Espacio de Sosiego',
+    text: 'Un rincón pacífico con luz natural para desconectar y recargar energías.',
+    cta: 'Visítanos',
   },
 ]

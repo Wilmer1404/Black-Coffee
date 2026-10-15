@@ -71,10 +71,10 @@ export default function Location() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#10C65A] py-3.5 px-4 text-xs sm:text-sm font-bold text-white shadow-soft transition duration-300 hover:bg-[#0EB552] active:scale-[0.98]"
+                className="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-[#10C65A] py-3.5 px-4 text-xs sm:text-sm font-bold text-white shadow-soft transition duration-300 hover:bg-[#0EB552] active:scale-[0.98]"
               >
-                <Icon name="chat" className="h-4 w-4" strokeWidth={2.2} />
-                <span>Atención Rápida por WhatsApp</span>
+                <Icon name="whatsapp" className="h-4 w-4" strokeWidth={2.2} />
+                <span>Pedidos por WhatsApp: 984088265</span>
               </a>
             </Reveal>
           </div>
